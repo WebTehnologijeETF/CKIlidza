@@ -16,12 +16,33 @@
 </div>
 
 <div id="meni">
-<ul>
-     <li><a href="naslovna.html">Novosti</a></li>
-     <li><a href="onama.html"> O nama</a></li>
-     <li><a href="volonteri.html">Volonteri</a></li>
-     <li><a href="partneri.html">Partneri</a></li>
-     <li><a href="kontakt.html">Kontakt</a></li>
+<ul id="ul_meni">
+     <li><a href="naslovna.html" onmouseover="prikazi('m1')" onmouseout="sakrij()">Novosti</a>
+	 <div id="m1" onmouseover="otkrij()" onmouseout="sakrij()">
+	 <a href="#">Nove aktivnosti</a>
+	 <a href="#">Termini za PP</a>
+	 <a href="#">Takmicenja iz PP</a>
+	 </div>
+	 </li>
+     <li><a href="onama.html"onmouseover="prikazi('m2')" onmouseout="sakrij()"> O nama</a>
+	 <div id="m2" onmouseover="otkrij()"" onmouseout="sakrij()">
+	 <a href="#">O pokretu</a>
+	 <a href="#">O organizaciji</a>
+	 <a href="#">Struktura CK</a>	
+	 </div>
+	 </li>
+     <li><a href="volonteri.html" onmouseover="prikazi('m3')" onmouseout="sakrij()">Aktivnosti</a>
+	  <div id="m3" onmouseover="otkrij()" onmouseout="sakrij()">
+	 <a href="#">Prva pomoć</a>
+	 <a href="#">Dobrovoljno darivanje krvi</a>
+	 <a href="#">Socijalne djelatnosti</a>
+	 <a href="#">Služba traženja</a>
+	 <a href="#">Služba i spašavanje u nesrećama</a>
+	 <a href="#">Edukacije</a>
+	 </div>
+	 </li>
+     <li class="dropdown"><a href="partneri.html">Partneri</a></li>
+     <li class="dropdown"><a href="kontakt.html">Kontakt</a></li>
 </ul>
 </div>
 
@@ -53,16 +74,36 @@ E-mail:  ck_ilidza@hotmail.com<br>
 
 <div class= "sadrzaj">
 <div id="podloga">
-<form id="formica" >
+
+<form id="formica" onsubmit="return provjeriFormu()" novalidate>
 			<fieldset id = "okvir_kontakt">
 				<p id="bold" >Kontakt forma:</p>
-				<p>Ime: <input id = "ime" type="text" name="ime"></p>
-				<p >Prezime: <input id = "prezime" type="text" name="prezime"></p>
-				<p >E-mail adresa: <input id = "email" type="email" name="email"></p>
-				<p >Telefon: <input id = "telefon" type="tel" name="telefon"></p>
-				<p >Komentar: <textarea id="komentar" name="komentar"></textarea>
-				<p><input id = "posalji" type="submit" value="Pošalji"></p>
-			</fieldset>
+				<table id="tabela_kontakt">
+				<tr>
+				<td>Ime: *</td> <td><input id = "ime" type="text" name="ime" ></td>
+				<td id="error1"> </td><td id="imeError" class="red"></td></tr>
+				<tr>
+				<td >Prezime: *</td> <td><input id = "prezime" type="text" name="prezime"></td>
+				<td id="error2"></td><td id="prezimeError" class="red"></td></tr>
+				<tr>
+				<td >E-mail: *</td> <td><input id = "email" type="email" name="email" placeholder="mymail@example.com"></td>
+				<td id="error3"></td><td id="emailError" class="red"></td></tr>
+				<tr>
+				<td >Telefon: *</td> <td><input id = "telefon" type="tel" name="telefon" placeholder="061-123-456"></td>
+				<td id="error4"></td><td id="telefonError" class="red"></td></tr>
+				<tr>
+				<td >Želite li ostaviti komentar?</td>
+				 <td> <input type="radio" id="da" value="da" onclick="return enableKomentar();">Da
+                      <input type="radio" id="ne" value="ne" onclick="return enableKomentar();" checked>Ne</td>
+				</tr>
+				<tr>
+				<td >Komentar:</td><td><textarea id="komentar" name="komentar" disabled></textarea></td>
+				<td id="error5"></td><td id="komentarError" class="red"></td></tr>
+								
+				</table>
+				<p><input id = "posalji" type="submit" onclick="potvrda()" value="Pošalji"></p>
+				<p id="poruka">Polja koja su naznačena sa * se moraju unijet</p>
+			</fieldset> 
 		</form>
 		</div>
 </div>
@@ -72,7 +113,9 @@ E-mail:  ck_ilidza@hotmail.com<br>
 Copyright &copy; 2015. Botulja Sumeja 
 </div>
 
-
 </div>
+<script src ="validacija.js"></script>
+<script src ="meni.js"></script>
+
 </body>
 </html>

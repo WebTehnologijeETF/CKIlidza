@@ -16,12 +16,33 @@
 </div>
 
 <div id="meni">
-<ul>
-     <li><a href="naslovna.html">Novosti</a></li>
-     <li><a href="onama.html"> O nama</a></li>
-     <li><a href="volonteri.html">Volonteri</a></li>
-     <li><a href="partneri.html">Partneri</a></li>
-     <li><a href="kontakt.html">Kontakt</a></li>
+<ul id="ul_meni">
+     <li><a href="naslovna.html" onmouseover="prikazi('m1')" onmouseout="sakrij()">Novosti</a>
+	 <div id="m1" onmouseover="otkrij()" onmouseout="sakrij()">
+	 <a href="#">Nove aktivnosti</a>
+	 <a href="#">Termini za PP</a>
+	 <a href="#">Takmicenja iz PP</a>
+	 </div>
+	 </li>
+     <li><a href="onama.html"onmouseover="prikazi('m2')" onmouseout="sakrij()"> O nama</a>
+	 <div id="m2" onmouseover="otkrij()"" onmouseout="sakrij()">
+	 <a href="#">O pokretu</a>
+	 <a href="#">O organizaciji</a>
+	 <a href="#">Struktura CK</a>	
+	 </div>
+	 </li>
+     <li><a href="volonteri.html" onmouseover="prikazi('m3')" onmouseout="sakrij()">Aktivnosti</a>
+	  <div id="m3" onmouseover="otkrij()" onmouseout="sakrij()">
+	 <a href="#">Prva pomoć</a>
+	 <a href="#">Dobrovoljno darivanje krvi</a>
+	 <a href="#">Socijalne djelatnosti</a>
+	 <a href="#">Služba traženja</a>
+	 <a href="#">Služba i spašavanje u nesrećama</a>
+	 <a href="#">Edukacije</a>
+	 </div>
+	 </li>
+     <li class="dropdown"><a href="partneri.html">Partneri</a></li>
+     <li class="dropdown"><a href="kontakt.html">Kontakt</a></li>
 </ul>
 </div>
 
@@ -69,5 +90,6 @@ Copyright &copy; 2015. Botulja Sumeja
 
 
 </div>
+<script src ="meni.js"></script>
 </body>
 </html>

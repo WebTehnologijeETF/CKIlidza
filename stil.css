@@ -86,35 +86,69 @@ font-size:50px;
 
 #meni ul {
   list-style: none;
-  background-color:#BDBDBD;
+  background-color:#D9DBD9;
   text-align: center;
   padding: 0;
   margin: 0;
-  box-shadow: inset 0 0 10px 10px #AAAAAA; 
+  
 }
 
-#meni li {
-  height: 40px;
+#ul_meni li{
+    height: 40px;
   border-bottom: 1px;
   width: 120px;
   height: 50px;
   font-size: 15px;
-  display: inline-block;
-  box-shadow: inset 0 0 5px 5px #AAAAAA; 
+  display: inline-block; 
+     border-right: 1px solid #FFFFFF;
+	   border-left: 1px solid #FFFFFF;
+
 }
- 
-#meni a {
-  text-decoration: none;
+#ul_meni li a{
+	text-align: center;
+	text-decoration: none;	
+	font-weight:bold;
+	font-size:18px;
   color:#800000 ;
   display: inline-block;
   font-family:"Ubuntu";
-  text-transform:uppercase;
   padding-top:15px;
 }
- 
-#meni li:hover {
-  background-color: #D0D0D0 ;
+#ul_meni li:hover{
+  background-color: #F5F5F5 ;
 }
+
+#ul_meni div
+{	position: absolute;
+	visibility: hidden;
+	width: 200px;
+	margin-top: 14px;
+	padding: 0;
+	background: #D0D0D0;
+	border: 1px solid #D0D0D0;
+	}
+
+	#ul_meni div a
+	{	position: relative;
+		display: block;
+		margin: 0;
+		padding-left: 10px;
+		width: auto;
+		height:20px;
+		text-align: left;		
+		background: #F5F5F5;
+		color: #800000;
+		font-size: 13px;
+		font-family:"Ubuntu";
+		text-decoration:none;
+		font-weight:normal;
+		border-bottom: 2px solid #FFFFFF		
+	}
+
+	#ul_meni div a:hover
+	{	  background-color: #D0D0D0 ;
+		  color: #FFF}
+		
 
 .sadrzaj{
     float:right;
@@ -222,13 +256,13 @@ font-family:"Ubuntu";
 
 #formica{
 padding-top:2px;
-margin-left:150px;
+margin-left:10px;
 font-family:"Ubuntu";
 }
 
 #okvir_kontakt
 {
-width:300px;
+width:500px;
 padding-left:80px;
 -webkit-border-radius: 10px;
 -moz-border-radius: 10px;
@@ -240,13 +274,13 @@ background-color:#F9F0F0;
 
 #posalji{
 width:80px;
-margin-left:120px;
+margin-left:230px;
 font-family:"Ubuntu";
 font-weight:bold;
 
 }
 
-input    {
+#ime,#prezime,#email,#telefon,#komentar,select   {
 width:200px;
 display:block;
 border: 1px solid #999;
@@ -254,6 +288,25 @@ height: 25px;
 -webkit-box-shadow: 0px 0px 8px;
 -moz-box-shadow: 0px 0px 8px;
 box-shadow: 0px 0px 8px;
+padding:2px;
+font-family:"Ubuntu";
+}
+
+
+.red{
+width:200px;
+color:red;
+font-size:12px;
+text-align:left;
+}
+
+table{
+border:0;
+}
+
+td{
+text-align:right;
+padding:3px 10px 3px 3px;
 }
 
 #komentar{
@@ -264,13 +317,21 @@ height:50px;
 -moz-box-shadow: 0px 0px 8px;
 box-shadow: 0px 0px 8px;
 }
-
+#poruka {
+font-size:12px;
+color:red;
+text-align:right;
+}
+#error{
+margin:0;
+}
+/* zakomentarisan dio tabela volonetra
 table, th, td {
    border: 1px solid black;
    border-color:#7D1919;
 }
 
-table{
+#table{
 border-collapse: collapse;
 width:500px;
 margin-left:70px;
@@ -283,14 +344,14 @@ background-color:#993636;
 color:#C2C2A3;
 }
 
-td {
+td{
     height: 20px;
 	padding:5px;
 	text-align:center;
 	background-color:#F8DBDB;
 }
 
-
+*/
 #dno{
 clear: both;
 padding-left :10px;
