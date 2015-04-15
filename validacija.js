@@ -13,7 +13,7 @@ function provjeriFormu(){
 	 if(!regexSlova.test(forma['ime'].value)){		
 		var errorElement = document.getElementById('imeError');
         var x=document.getElementById('error1');	
-        x.innerHTML="<img src='slike/error.png' alt=''/>";
+        x.innerHTML="<img src='error.png' alt=''/>";
 		errorElement.innerHTML = "Ime smije sadržavati samo slova!";		
 		forma.ime.focus();
 		return false;
@@ -29,7 +29,7 @@ function provjeriFormu(){
 	 if(forma.ime.value.length > 15 || forma.ime.value.length < 3){		
 		var errorElement = document.getElementById('imeError');
         var x=document.getElementById('error1');	
-        x.innerHTML="<img src='slike/error.png' alt=''/>";
+        x.innerHTML="<img src='error.png' alt=''/>";
 		errorElement.innerHTML = "Ime mora biti duzine između 3 i 15 slova!";		
 		forma.ime.focus();
 		return false;
@@ -45,7 +45,7 @@ function provjeriFormu(){
     if(forma.prezime.value.length > 15 || forma.prezime.value.length < 3){
 		var errorElement = document.getElementById('prezimeError');
 		 var x=document.getElementById('error2');	
-        x.innerHTML="<img src='slike/error.png' alt=''/>";
+        x.innerHTML="<img src='error.png' alt=''/>";
 		errorElement.innerHTML = "Prezime mora biti duzine između 3 i 15 slova!";
 		forma.prezime.focus();
 		return false;
@@ -61,7 +61,7 @@ function provjeriFormu(){
 	if(!regexSlova.test(forma['prezime'].value)){		
 		var errorElement = document.getElementById('prezimeError');
 		 var x=document.getElementById('error2');	
-        x.innerHTML="<img src='slike/error.png' alt=''/>";
+        x.innerHTML="<img src='error.png' alt=''/>";
 		errorElement.innerHTML = "Prezime smije sadržavati samo slova!";		
 		forma.ime.focus();
 		return false;
@@ -78,7 +78,7 @@ function provjeriFormu(){
 	 if(!regexEmail.test(forma['email'].value)){
 		var errorElement = document.getElementById('emailError');
 		 var x=document.getElementById('error3');	
-        x.innerHTML="<img src='slike/error.png' alt=''/>";
+        x.innerHTML="<img src='error.png' alt=''/>";
 		errorElement.innerHTML = "Email nije ispravno unesen! Pratite example!";
 		forma.email.focus();	
 		return false;
@@ -94,7 +94,7 @@ function provjeriFormu(){
     if(!regexTelefon.test(forma['telefon'].value)){
 		var errorElement = document.getElementById('telefonError');
 		 var x=document.getElementById('error4');	
-        x.innerHTML="<img src='slike/error.png' alt=''/>";
+        x.innerHTML="<img src='error.png' alt=''/>";
 		errorElement.innerHTML = "Format broja je: (061)-123-456 ili 061-123-456 ili 061123456";
 		forma.telefon.focus();
 		return false;
