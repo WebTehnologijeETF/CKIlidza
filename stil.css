@@ -158,7 +158,7 @@ font-size:50px;
 	overflow: scroll;
 }
 
-#novost1, #novost2, #novost3{
+.novost{
 	height: 290px;
 	width: 650px;
 	padding:0;	
@@ -166,7 +166,7 @@ font-size:50px;
 	margin:25px;
 }
 
-#naslov1, #naslov2, #naslov3{
+.naslovN{
 	padding-top: 20px;
 	padding-left: 20px;
 	color:#E8E6E6;
