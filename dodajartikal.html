@@ -1,0 +1,31 @@
+<body>
+<div class= "sadrzaj">
+<div id="podloga">
+
+<form id="forma_dodaj" onsubmit=" return provjeriDodavanjeArtikla()" novalidate>
+			<fieldset id = "okvir_kontakt">
+				<p id="bold" >Dodaj artikal:</p>
+				<table id="tabela_artikal">		
+				<tr>
+				<td>Naziv: *</td> <td><input class = "polje" type="text" name="naziv" id="naziv"></td>
+				<td id="error_n"> </td><td id="nazivError" class="red"></td></tr>
+				<tr>
+				<td >Opis: *</td> <td><input class = "polje" type="text" name="opis" id="opis"></td>
+				<td id="error_o"></td><td id="opisError" class="red"></td></tr>
+				<tr>
+				<td >Slika: *</td> <td><input class = "polje" type="text" name="slika" id="slika"></td>
+				<td id="error_s"></td><td id="slikaError" class="red"></td></tr>
+				<tr>
+				<td >Kolicina: </td> <td><input class = "polje" type="text" name="kolicina" id="kolicina"></td>
+				<td id="error_k"></td><td id="kolicinaError" class="red"></td></tr>
+				<tr>
+				<td >Dostupnost:</td><td><input class = "polje" name="dostupnost" id="dostupnost" type ="text"></td>
+				<td id="error_d"></td><td id="dostupnostError" class="red"></td></tr>							
+				</table>
+				<p><input id = "dodaj_a" class="dugme" type="button" onclick="return dodajArtikal()" value="Dodaj"></p>
+				<p id="poruka">Polja koja su naznačena sa * se moraju unijet</p>
+			</fieldset> 
+		</form>
+		</div>
+</div>
+</body>

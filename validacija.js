@@ -1,6 +1,6 @@
 function provjeriFormu(){
 	
-	var forma = document.getElementById('formica');  
+var forma = document.getElementById('formica');  
 	var regexSlova= /^[a-zA-Z]+$/;
 	var regexTelefon=/^\(?(\d{3})\)?[]?(\d{3})[]?(\d{3})$/;
 	var regexEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
@@ -106,28 +106,93 @@ function provjeriFormu(){
 		errorElement.innerHTML = "";	  
   }
 	
-
-/*	
-  if(forma.komentar.value.length > 100 || forma.komentar.value.length < 3){
-		var errorElement = document.getElementById('komentarError');
-		 var x=document.getElementById('error5');	
-        x.innerHTML="<img src='slike/error.png' alt=''/>";
-		errorElement.innerHTML = "Komentar mora biti unesen";
-		forma.komentar.focus();	
+    else if(document.getElementById("opcinaError").value != "" || document.getElementById("mjestoError").value != "")
+	{
 		return false;
+	}		
+	return true;
+}
+/*
+function ajaxValidacijaOpcina(val)
+{
+var forma = document.getElementById('formica');  
+//ajax validacija za mjesto i opcinu
+	var opcina = val;
+    var mjesto = forma.mjesto.value;
+		if(opcina.length == 0){
+			document.getElementById("opcinaError").innerHTML = "Unesite općinu!";
+					document.getElementById("error5").innerHTML="<img src='error.png' alt=''/>"; 
+		}
+		else if(opcina.length != 0){
+			document.getElementById("opcinaError").innerHTML = "";
+					document.getElementById("error5").innerHTML="<img src='' alt=''/>"; 
+		}	
+}
+function ajaxValidacijaMjesto(val){
+	var forma = document.getElementById('formica');  
+//ajax validacija za mjesto i opcinu
+	var opcina = forma.opcina.value;
+    var mjesto =  val;
+    if(mjesto.length==0){
+			document.getElementById("mjestoError").innerHTML = "Unesite mjesto!";
+					document.getElementById("error6").innerHTML="<img src='error.png' alt=''/>"; 
+		}
+		else if(mjesto.length != 0){
+			document.getElementById("mjestoError").innerHTML = "";
+					document.getElementById("error6").innerHTML="<img src='' alt=''/>"; 
+		}
+}*/
+function ajaxValidacija(){
+	var forma = document.getElementById('formica');  
+//ajax validacija za mjesto i opcinu
+	var opcina = forma.opcina.value;
+    var mjesto =  forma.mjesto.value;
+	
+    if(opcina.length !=0 && mjesto.length !=0){
+    var ajax;
+	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+			ajax=new XMLHttpRequest();
+		}
+	else{// code for IE6, IE5
+			ajax=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+	ajax.onreadystatechange = function() {// Anonimna funkcija                                      
+		if (ajax.readyState == 4 && ajax.status == 200 ){
+			var odgovor=JSON.parse(ajax.responseText);
+				if(odgovor.greska=="Nepostojeća općina"){
+					document.getElementById("opcina").focus();
+			    	document.getElementById("opcinaError").innerHTML = "Nepostojeća općina";
+					document.getElementById("error5").innerHTML="<img src='error.png' alt=''/>"; 						
+				}
+				else if(odgovor.greska=="Nepostojeće mjesto"){
+					document.getElementById('mjesto').focus();
+					document.getElementById("mjestoError").innerHTML = "Nepostojeće mjesto";
+					document.getElementById("error6").innerHTML="<img src='error.png' alt=''/>";
+				}
+				else if(odgovor.greska=="Mjesto nije iz date općine"){
+					document.getElementById("mjesto").focus();
+					document.getElementById("mjestoError").innerHTML = "Mjesto nije iz date općine";
+					document.getElementById("error6").innerHTML="<img src='error.png' alt=''/>";					
+				}
+			    else if(odgovor.ok=="Mjesto je iz date općine") {
+				    document.getElementById("opcinaError").innerHTML = "";	
+                    document.getElementById("mjestoError").innerHTML = "";
+					document.getElementById("error6").innerHTML="<img src='' alt=''/>";	
+					document.getElementById("error5").innerHTML="<img src='' alt=''/>";					
+		        }				
+		} 	
+		 /*if (ajax.readyState == 4 && ajax.status == 404){                                           
+			document.getElementById("sadrzaj").innerHTML="Greska: nepoznat URL";		
+		}*/
 	}
-		else if(forma.komentar.value.length < 100 || forma.komentar.value.length > 3){
-	  var errorElement = document.getElementById('komentarError');
-        var x=document.getElementById('error5');	
-        x.innerHTML="<img src='' alt=''/>";
-		errorElement.innerHTML = "";	  
-  }*/
- return true;
-
+       ajax.open("GET","http://zamger.etf.unsa.ba/wt/mjesto_opcina.php?opcina=" + encodeURIComponent(opcina) + "&mjesto=" + encodeURIComponent(mjesto), true);                        
+    ajax.send(); 
+	}
+	
 }
 
-function enableKomentar()
-{
+function enableKomentar(){
 	if(document.getElementById("da").checked){
 	document.getElementById("komentar").disabled = false;
 	document.getElementById("ne").checked=false;
@@ -136,10 +201,101 @@ function enableKomentar()
 	document.getElementById("komentar").disabled = true
 	}
 }
-function potvrda()
-{
+/*function potvrda(){
 	if( provjeriFormu()){
 		alert("Uspješno ste poslali vaše podatke.Uskoro ćemo Vas kontaktirati o daljnoj suradnji.Lijep pozdrav,Senada Brkić-Šegalo");
 	}
+}*/
+function provjeriDodavanjeArtikla(){
+	
+var forma = document.getElementById('forma_dodaj');  
+
+    //prva provjera da li su sva polja koja su required unesena
+	if(forma.naziv.value.length == 0 || forma.opis.value.length== 0 || forma.slika.value.length== 0){
+		alert("Polja koja su naznacena sa * moraju biti unesena");
+		return false;
+	}
+   
+//provjera da li je naziv dozvoljene duzine     
+	 if(forma.naziv.value.length > 15 || forma.ime.value.length < 3){		
+		var errorElement = document.getElementById('nazivError');
+        var x=document.getElementById('error_n');	
+        x.innerHTML="<img src='error.png' alt=''/>";
+		errorElement.innerHTML = "Naziv mora biti duzine između 3 i 15 slova!";		
+		forma.naziv.focus();
+		return false;
+  }
+   else if(forma.naziv.value.length < 15 || forma.naziv.value.length > 3){
+	  var errorElement = document.getElementById('nazivError');
+        var x=document.getElementById('error_n');	
+        x.innerHTML="<img src='' alt=''/>";
+		errorElement.innerHTML = "";
+	  
+  }
+	//provjera da li je opis dozvoljene duzine	
+    if(forma.opis.value.length > 55 || forma.opis.value.length < 3){
+		var errorElement = document.opis.getElementById('Error');
+		 var x=document.getElementById('error_o');	
+        x.innerHTML="<img src='error.png' alt=''/>";
+		errorElement.innerHTML = "Opis mora biti duzine između 3 i 55 slova!";
+		forma.opis.focus();
+		return false;
+	}
+	  else if(forma.opis.value.length < 15 || forma.opis.value.length > 3){
+	  var errorElement = document.getElementById('opisError');
+        var x=document.getElementById('error_o');	
+        x.innerHTML="<img src='' alt=''/>";
+		errorElement.innerHTML = "";
+	  
+  }
+  
+// provjera da li je resource slike ispravno unesen
+	if(forma.slika.value.length == 0){		
+		var errorElement = document.getElementById('slikaError');
+		 var x=document.getElementById('error_s');	
+        x.innerHTML="<img src='error.png' alt=''/>";
+		errorElement.innerHTML = "Niste pravilno unijeli path do slike!";		
+		forma.slika.focus();
+		return false;
+  }
+    else if(forma.slika.value.length != 0){
+	  var errorElement = document.getElementById('slikaError');
+        var x=document.getElementById('error_s');	
+        x.innerHTML="<img src='' alt=''/>";
+		errorElement.innerHTML = "";
+	  
+  }
+ 	//provjera za kolicinu 
+	 if(Math.round(forma.kolicina.value) != forma.kolicina.value){		
+		var errorElement = document.getElementById('kolicinaError');
+        var x=document.getElementById('error_K');	
+        x.innerHTML="<img src='error.png' alt=''/>";
+		errorElement.innerHTML = "Količinamora biti cio broj!";		
+		forma.kolicina.focus();
+		return false;
+  }
+   else if(Math.round(forma.kolicina.value) == forma.kolicina.value){
+	  var errorElement = document.getElementById('kolicinaError');
+        var x=document.getElementById('error_K');	
+        x.innerHTML="<img src='' alt=''/>";
+		errorElement.innerHTML = "";
+	  
+  }
+	//provjera za dostupnost
+    if(forma.dostupnost.value != 0 && forma.dostupnost.value != 1){
+		var errorElement = document.opis.getElementById('dostupnostError');
+		 var x=document.getElementById('error_d');	
+        x.innerHTML="<img src='error.png' alt=''/>";
+		errorElement.innerHTML = "Dostupnost mora biti 0 ili 1!";
+		forma.dostupnost.focus();
+		return false;
+	}
+	  else if(forma.dostupnost.value != 0 && forma.dostupnost.value != 1){
+	  var errorElement = document.getElementById('dostupnostError');
+        var x=document.getElementById('error_d');	
+        x.innerHTML="<img src='' alt=''/>";
+		errorElement.innerHTML = "";
+	  
+  }		
+	return true;
 }
-//document.getElementById("formica").addEventListener("submit", provjeriFormu,false);

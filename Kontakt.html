@@ -1,96 +1,30 @@
-<!DOCTYPE HTML >
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <link rel="stylesheet" type="text/css" href="stil.css">
-<title>Crveni križ općine Ilidža</title>
-</head>
 
 <body>
-<div id="okvir">
-<div id="logo">
-<img src="slike/logo.png" alt="">
-</div>
-<div id="naslov">
-<h1 >Crveni križ općine Ilidža</h1>
-</div>
-
-<div id="meni">
-<ul id="ul_meni">
-     <li><a href="Naslovna.html" onmouseover="prikazi('m1')" onmouseout="sakrij()">Novosti</a>
-	 <div id="m1" onmouseover="otkrij()" onmouseout="sakrij()">
-	 <a href="#">Nove aktivnosti</a>
-	 <a href="#">Termini za PP</a>
-	 <a href="#">Takmicenja iz PP</a>
-	 </div>
-	 </li>
-     <li><a href="onama.html"onmouseover="prikazi('m2')" onmouseout="sakrij()"> O nama</a>
-	 <div id="m2" onmouseover="otkrij()"" onmouseout="sakrij()">
-	 <a href="#">O pokretu</a>
-	 <a href="#">O organizaciji</a>
-	 <a href="#">Struktura CK</a>	
-	 </div>
-	 </li>
-     <li><a href="volonteri.html" onmouseover="prikazi('m3')" onmouseout="sakrij()">Aktivnosti</a>
-	  <div id="m3" onmouseover="otkrij()" onmouseout="sakrij()">
-	 <a href="#">Prva pomoć</a>
-	 <a href="#">Dobrovoljno darivanje krvi</a>
-	 <a href="#">Socijalne djelatnosti</a>
-	 <a href="#">Služba traženja</a>
-	 <a href="#">Služba i spašavanje u nesrećama</a>
-	 <a href="#">Edukacije</a>
-	 </div>
-	 </li>
-     <li class="dropdown"><a href="partneri.html">Partneri</a></li>
-     <li class="dropdown"><a href="Kontakt.html">Kontakt</a></li>
-</ul>
-</div>
-
-
-<div id="traka">
-<div id="principi">
-<div id="naslov_p"> Principi Crvenog križa:</div>
-<ul>
-     <li>Humanost</li>
-     <li>Nepristrasnost</li>
-     <li>Neutralnost</li>
-     <li>Neovisnost</li>
-     <li>Dobrovoljnost</li>
-     <li>Jedinstvo</li>
-     <li>Univerzalnost</li>
-</ul>
-</div>
-
-<div id="kontakt_info">
-<div id="naslov_k"> Kontakt:</div>
-<pre id="kontakt1">
-Adresa:  Jahijela Fincija 14.<br>
-Telefon: 033/638-022<br>
-Fax:     033/638-023<br>
-E-mail:  ck_ilidza@hotmail.com<br>
-</pre>
-</div>
-</div>
-
 <div class= "sadrzaj">
 <div id="podloga">
 
 <form id="formica" onsubmit="return provjeriFormu()" novalidate>
 			<fieldset id = "okvir_kontakt">
 				<p id="bold" >Kontakt forma:</p>
-				<table id="tabela_kontakt">
+				<table id="tabela_kontakt" onsubmit=" return potvrda()">
 				<tr>
-				<td>Ime: *</td> <td><input id = "ime" type="text" name="ime" ></td>
+				<td>Ime: *</td> <td><input class = "polje" type="text" name="ime" ></td>
 				<td id="error1"> </td><td id="imeError" class="red"></td></tr>
 				<tr>
-				<td >Prezime: *</td> <td><input id = "prezime" type="text" name="prezime"></td>
+				<td >Prezime: *</td> <td><input class = "polje" type="text" name="prezime"></td>
 				<td id="error2"></td><td id="prezimeError" class="red"></td></tr>
 				<tr>
-				<td >E-mail: *</td> <td><input id = "email" type="email" name="email" placeholder="mymail@example.com"></td>
+				<td >E-mail: *</td> <td><input class = "polje" type="email" name="email" placeholder="mymail@example.com"></td>
 				<td id="error3"></td><td id="emailError" class="red"></td></tr>
 				<tr>
-				<td >Telefon: *</td> <td><input id = "telefon" type="tel" name="telefon" placeholder="061-123-456"></td>
+				<td >Telefon: *</td> <td><input class = "polje" type="tel" name="telefon" placeholder="061-123-456"></td>
 				<td id="error4"></td><td id="telefonError" class="red"></td></tr>
+				<tr>
+				<td >Općina:</td><td><input class = "polje" id="opcina" type ="text" name="opcina" onchange="ajaxValidacija()"></td>
+				<td id="error5"></td><td id="opcinaError" class="red"></td></tr>
+				<tr>
+				<td >Mjesto:</td><td><input class = "polje" id="mjesto" type="text" name="mjesto" onchange="ajaxValidacija()"></td>
+				<td id="error6"></td><td id="mjestoError" class="red"></td></tr>
 				<tr>
 				<td >Želite li ostaviti komentar?</td>
 				 <td> <input type="radio" id="da" value="da" onclick="return enableKomentar();">Da
@@ -98,24 +32,12 @@ E-mail:  ck_ilidza@hotmail.com<br>
 				</tr>
 				<tr>
 				<td >Komentar:</td><td><textarea id="komentar" name="komentar" disabled></textarea></td>
-				<td id="error5"></td><td id="komentarError" class="red"></td></tr>
-								
+				<td id="error5"></td><td id="komentarError" class="red"></td></tr>				
 				</table>
-				<p><input id = "posalji" type="submit" onclick="potvrda()" value="Pošalji"></p>
+				<p><input id = "posalji" class="dugme" type="submit" onsubmit="provjeriFormu()" value="Pošalji"></p>
 				<p id="poruka">Polja koja su naznačena sa * se moraju unijet</p>
 			</fieldset> 
 		</form>
 		</div>
 </div>
-
-
-<div id="dno">
-Copyright &copy; 2015. Botulja Sumeja 
-</div>
-
-</div>
-<script src ="validacija.js"></script>
-<script src ="meni.js"></script>
-
 </body>
-</html>

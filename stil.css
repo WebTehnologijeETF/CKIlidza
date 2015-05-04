@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Halvetica);
 @import url(http://fonts.googleapis.com/css?family=Ubuntu&effect=shadow-multiple|3d-float);
 
 body{
@@ -57,7 +56,7 @@ font-family:'Ubuntu',serif;
 font-size:15px;
 }
 
-#naslov_k, #naslov_p{
+#naslov_k, #naslov_p,#naslov_ponuda{
 color:#800000;
 font-weight:bold;
 }
@@ -229,7 +228,7 @@ padding-left:10px;
 padding-right:10px;
 }
 
-#podloga{
+#podloga, #podlogaTabela{
 	width: 650px;
 	padding:10px;
 	background-color:white;
@@ -272,7 +271,7 @@ box-shadow: 0px 0px 8px;
 background-color:#F9F0F0;
 }
 
-#posalji{
+.dugme{
 width:80px;
 margin-left:230px;
 font-family:"Ubuntu";
@@ -280,7 +279,7 @@ font-weight:bold;
 
 }
 
-#ime,#prezime,#email,#telefon,#komentar,select   {
+.polje,select   {
 width:200px;
 display:block;
 border: 1px solid #999;
@@ -299,8 +298,7 @@ color:red;
 font-size:12px;
 text-align:left;
 }
-
-table{
+ #tabela_kontakt{
 border:0;
 }
 
@@ -325,6 +323,21 @@ text-align:right;
 #error{
 margin:0;
 }
+
+
+#podlogaTabela{
+overflow: scroll;}
+
+
+ 
+#podaciTabela,th  {
+    border-bottom: 1px solid maroon;
+    border-collapse: collapse;
+}
+#podaciTabela tr{
+ border-bottom: 5px solid maroon;
+}
+
 /* zakomentarisan dio tabela volonetra
 table, th, td {
    border: 1px solid black;
