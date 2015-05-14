@@ -1,23 +1,22 @@
 
 <body>
 <div class= "sadrzaj">
-<div id="podloga">
-
-<form id="formica" onsubmit="return provjeriFormu()" novalidate>
+<div id="podloga">	<!--onsubmit="return provjeriFormu()" --->	
+<form id="formica"  method="post" action="prikazphp.php" novalidate>
 			<fieldset id = "okvir_kontakt">
 				<p id="bold" >Kontakt forma:</p>
 				<table id="tabela_kontakt" onsubmit=" return potvrda()">
 				<tr>
-				<td>Ime: *</td> <td><input class = "polje" type="text" name="ime" ></td>
+				<td>Ime: *</td> <td><input class = "polje" type="text" name="ime" ></td> 
 				<td id="error1"> </td><td id="imeError" class="red"></td></tr>
 				<tr>
-				<td >Prezime: *</td> <td><input class = "polje" type="text" name="prezime"></td>
+				<td >Prezime: *</td> <td><input class = "polje" type="text" name="prezime"></td> 
 				<td id="error2"></td><td id="prezimeError" class="red"></td></tr>
 				<tr>
-				<td >E-mail: *</td> <td><input class = "polje" type="email" name="email" placeholder="mymail@example.com"></td>
+				<td >E-mail: *</td> <td><input class = "polje" type="email" name="email" placeholder="mymail@example.com"></td> 
 				<td id="error3"></td><td id="emailError" class="red"></td></tr>
 				<tr>
-				<td >Telefon: *</td> <td><input class = "polje" type="tel" name="telefon" placeholder="061-123-456"></td>
+				<td >Telefon: *</td> <td><input class = "polje" type="tel" name="telefon" placeholder="061-123-456"></td> 
 				<td id="error4"></td><td id="telefonError" class="red"></td></tr>
 				<tr>
 				<td >Općina:</td><td><input class = "polje" id="opcina" type ="text" name="opcina" onchange="ajaxValidacija()"></td>
@@ -27,12 +26,13 @@
 				<td id="error6"></td><td id="mjestoError" class="red"></td></tr>
 				<tr>
 				<td >Želite li ostaviti komentar?</td>
-				 <td> <input type="radio" id="da" value="da" onclick="return enableKomentar();">Da
-                      <input type="radio" id="ne" value="ne" onclick="return enableKomentar();" checked>Ne</td>
+				 <td> <input type="radio" id="da" value="da" name="radio"  onclick="return enableKomentar();" checked>Da
+                      <input type="radio" id="ne" value="ne" name="radio"  onclick="return enableKomentar();">Ne</td> 
+				<td id="error8"></td><td id="radioError" class="red"></td></tr>		
 				</tr>
 				<tr>
-				<td >Komentar:</td><td><textarea id="komentar" name="komentar" disabled></textarea></td>
-				<td id="error5"></td><td id="komentarError" class="red"></td></tr>				
+				<td >Komentar:</td><td><textarea id="komentar" name="komentar" ></textarea></td>
+				<td id="error7"></td><td id="komentarError" class="red"></td></tr>	
 				</table>
 				<p><input id = "posalji" class="dugme" type="submit" onsubmit="provjeriFormu()" value="Pošalji"></p>
 				<p id="poruka">Polja koja su naznačena sa * se moraju unijet</p>

@@ -1,6 +1,3 @@
-openPage("Naslovna.html");
-
-
         document.getElementById("naslovna").addEventListener( "click", function(ev){
                 openPage("Naslovna.html");
         }, false);
@@ -31,7 +28,7 @@ openPage("Naslovna.html");
 		 document.getElementById("izmjeniArtikal").addEventListener( "click", function(ev){
                 openPage("izmjeniartikal.html");
         }, false);
-
+		
     function openPage(link){
             var ajax;
 	if (window.XMLHttpRequest)
@@ -50,6 +47,28 @@ openPage("Naslovna.html");
                         if (ajax.readyState == 4 && ajax.status == 404)
                                 document.getElementById("sadrzaj").innerHTML = "Greska: nepoznat URL";
                 }
-                ajax.open("GET", link, true);
+                ajax.open("POST", link, true);
+                ajax.send();
+        }
+		
+	function openPagePHP(link){
+            var ajax;
+	if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+			ajax=new XMLHttpRequest();
+		}
+	else
+		{// code for IE6, IE5
+			ajax=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+                ajax.onreadystatechange = function() {// Anonimna funkcija                 
+                        if (ajax.readyState == 4 && ajax.status == 200)
+                        {							
+                                document.getElementById("tijelo").innerHTML = ajax.responseText;                               
+                        }
+                        if (ajax.readyState == 4 && ajax.status == 404)
+                                document.getElementById("tijelo").innerHTML = "Greska: nepoznat URL";
+                }
+                ajax.open("POST", link, true);
                 ajax.send();
         }

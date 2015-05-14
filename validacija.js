@@ -1,74 +1,76 @@
 function provjeriFormu(){
 	
-var forma = document.getElementById('formica');  
-	var regexSlova= /^[a-zA-Z]+$/;
-	var regexTelefon=/^\(?(\d{3})\)?[]?(\d{3})[]?(\d{3})$/;
+var forma = document.getElementById('formica');
+var errorElement;
+var x;  
+	var regexSlova= /^[a-zA-Z]+$/;                  
+	var regexTelefon=/^\(?(\d{3})\)?[-]?(\d{3})[-]?(\d{3})$/;
 	var regexEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     //prva provjera da li su sva polja koja su required unesena
 	if(forma.ime.value.length == 0 || forma.prezime.value.length== 0 || forma.email.value.length== 0 || forma.telefon.value.length==0 ){
-		alert("Polja koja su naznacena sa * moraju biti unesena");
+		alert("Polja označena sa * moraju biti unesena!");
 		return false;
 	}
     //regex provjera da li u imenu ima drugih znakova osim slova
 	 if(!regexSlova.test(forma['ime'].value)){		
-		var errorElement = document.getElementById('imeError');
-        var x=document.getElementById('error1');	
+		errorElement = document.getElementById('imeError');
+        x=document.getElementById('error1');	
         x.innerHTML="<img src='error.png' alt=''/>";
 		errorElement.innerHTML = "Ime smije sadržavati samo slova!";		
 		forma.ime.focus();
 		return false;
   }
   else if(regexSlova.test(forma['ime'].value)){
-	  var errorElement = document.getElementById('imeError');
-        var x=document.getElementById('error1');	
+	    errorElement = document.getElementById('imeError');
+        x=document.getElementById('error1');	
         x.innerHTML="<img src='' alt=''/>";
 		errorElement.innerHTML = "";
 	  
   }
 //provjera da li je ime dozvoljene duzine     
 	 if(forma.ime.value.length > 15 || forma.ime.value.length < 3){		
-		var errorElement = document.getElementById('imeError');
-        var x=document.getElementById('error1');	
+		errorElement = document.getElementById('imeError');
+        x=document.getElementById('error1');	
         x.innerHTML="<img src='error.png' alt=''/>";
 		errorElement.innerHTML = "Ime mora biti duzine između 3 i 15 slova!";		
 		forma.ime.focus();
 		return false;
   }
    else if(forma.ime.value.length < 15 || forma.ime.value.length > 3){
-	  var errorElement = document.getElementById('imeError');
-        var x=document.getElementById('error1');	
+	    errorElement = document.getElementById('imeError');
+        x=document.getElementById('error1');	
         x.innerHTML="<img src='' alt=''/>";
 		errorElement.innerHTML = "";
 	  
   }
 	//provjera da li je prezime dozvoljene duzine	
     if(forma.prezime.value.length > 15 || forma.prezime.value.length < 3){
-		var errorElement = document.getElementById('prezimeError');
-		 var x=document.getElementById('error2');	
+		errorElement = document.getElementById('prezimeError');
+	    x=document.getElementById('error2');	
         x.innerHTML="<img src='error.png' alt=''/>";
 		errorElement.innerHTML = "Prezime mora biti duzine između 3 i 15 slova!";
 		forma.prezime.focus();
 		return false;
 	}
 	  else if(forma.prezime.value.length < 15 || forma.prezime.value.length > 3){
-	  var errorElement = document.getElementById('prezimeError');
-        var x=document.getElementById('error2');	
+	    errorElement = document.getElementById('prezimeError');
+        x=document.getElementById('error2');	
         x.innerHTML="<img src='' alt=''/>";
 		errorElement.innerHTML = "";
 	  
   }
 //regex provjera da li u prezimenu ima drugih znakova osim slova
 	if(!regexSlova.test(forma['prezime'].value)){		
-		var errorElement = document.getElementById('prezimeError');
-		 var x=document.getElementById('error2');	
+	    errorElement = document.getElementById('prezimeError');
+		x=document.getElementById('error2');	
         x.innerHTML="<img src='error.png' alt=''/>";
 		errorElement.innerHTML = "Prezime smije sadržavati samo slova!";		
 		forma.ime.focus();
 		return false;
   }
     else if(regexSlova.test(forma['prezime'].value)){
-	  var errorElement = document.getElementById('prezimeError');
-        var x=document.getElementById('error2');	
+	    errorElement = document.getElementById('prezimeError');
+        x=document.getElementById('error2');	
         x.innerHTML="<img src='' alt=''/>";
 		errorElement.innerHTML = "";
 	  
@@ -76,72 +78,61 @@ var forma = document.getElementById('formica');
  
 	//regex provjera da li je email ispravnog formata
 	 if(!regexEmail.test(forma['email'].value)){
-		var errorElement = document.getElementById('emailError');
-		 var x=document.getElementById('error3');	
+		errorElement = document.getElementById('emailError');
+		x=document.getElementById('error3');	
         x.innerHTML="<img src='error.png' alt=''/>";
 		errorElement.innerHTML = "Email nije ispravno unesen! Pratite example!";
 		forma.email.focus();	
 		return false;
 	}
 	  else if(regexEmail.test(forma['email'].value)){
-	  var errorElement = document.getElementById('emailError');
-        var x=document.getElementById('error3');	
+	    errorElement = document.getElementById('emailError');
+        x=document.getElementById('error3');	
         x.innerHTML="<img src='' alt=''/>";
 		errorElement.innerHTML = "";
 	  
   }
 //regex provjera da li je telefon ispravnog formata
     if(!regexTelefon.test(forma['telefon'].value)){
-		var errorElement = document.getElementById('telefonError');
-		 var x=document.getElementById('error4');	
+		errorElement = document.getElementById('telefonError');
+		x=document.getElementById('error4');	
         x.innerHTML="<img src='error.png' alt=''/>";
 		errorElement.innerHTML = "Format broja je: (061)-123-456 ili 061-123-456 ili 061123456";
 		forma.telefon.focus();
 		return false;
 	}
 	else if(regexTelefon.test(forma['telefon'].value)){
-	  var errorElement = document.getElementById('telefonError');
-        var x=document.getElementById('error4');	
+	    errorElement = document.getElementById('telefonError');
+        x=document.getElementById('error4');	
         x.innerHTML="<img src='' alt=''/>";
 		errorElement.innerHTML = "";	  
   }
+  
+  //provjera da li je unesen komentar	
+    if(forma.komentar.value.length > 200 || forma.komentar.value.length < 3){
+		errorElement = document.getElementById('komentarError');
+	    x=document.getElementById('error7');	
+        x.innerHTML="<img src='error.png' alt=''/>";
+		errorElement.innerHTML = "Polje komentar je omoguceno, molimo unesite komentar!";
+		forma.komentar.focus();
+		return false;
+	}
+	  else if(forma.komentar.value.length < 200 || forma.komentar.value.length > 3){
+	    errorElement = document.getElementById('komentarError');
+        x=document.getElementById('error7');	
+        x.innerHTML="<img src='' alt=''/>";
+		errorElement.innerHTML = "";
+	  
+  }
+  
 	
-    else if(document.getElementById("opcinaError").value != "" || document.getElementById("mjestoError").value != "")
+    else if(document.getElementById("opcinaError").value.length != 0 || document.getElementById("mjestoError").value.length != 0)
 	{
 		return false;
 	}		
 	return true;
 }
-/*
-function ajaxValidacijaOpcina(val)
-{
-var forma = document.getElementById('formica');  
-//ajax validacija za mjesto i opcinu
-	var opcina = val;
-    var mjesto = forma.mjesto.value;
-		if(opcina.length == 0){
-			document.getElementById("opcinaError").innerHTML = "Unesite općinu!";
-					document.getElementById("error5").innerHTML="<img src='error.png' alt=''/>"; 
-		}
-		else if(opcina.length != 0){
-			document.getElementById("opcinaError").innerHTML = "";
-					document.getElementById("error5").innerHTML="<img src='' alt=''/>"; 
-		}	
-}
-function ajaxValidacijaMjesto(val){
-	var forma = document.getElementById('formica');  
-//ajax validacija za mjesto i opcinu
-	var opcina = forma.opcina.value;
-    var mjesto =  val;
-    if(mjesto.length==0){
-			document.getElementById("mjestoError").innerHTML = "Unesite mjesto!";
-					document.getElementById("error6").innerHTML="<img src='error.png' alt=''/>"; 
-		}
-		else if(mjesto.length != 0){
-			document.getElementById("mjestoError").innerHTML = "";
-					document.getElementById("error6").innerHTML="<img src='' alt=''/>"; 
-		}
-}*/
+
 function ajaxValidacija(){
 	var forma = document.getElementById('formica');  
 //ajax validacija za mjesto i opcinu
@@ -195,7 +186,7 @@ function ajaxValidacija(){
 function enableKomentar(){
 	if(document.getElementById("da").checked){
 	document.getElementById("komentar").disabled = false;
-	document.getElementById("ne").checked=false;
+	
 	}
 	else if(document.getElementById("ne").checked){
 	document.getElementById("komentar").disabled = true

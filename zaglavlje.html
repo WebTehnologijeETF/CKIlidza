@@ -1,14 +1,9 @@
-<?php include 'novosti.php'?>
-<!DOCTYPE HTML >
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="stil.css">
 <title>Crveni križ općine Ilidža</title>
 </head>
-
-<body onload="openPage('onama.html')">
-
 <div id="okvir">
 <div id="logo">
 <img src="slike/logo.png" alt="">
@@ -16,24 +11,24 @@
 <div id="naslov">
 <h1 >Crveni križ općine Ilidža</h1>
 </div>
-
+<body>
 <div id="meni">
 <ul id="ul_meni">
-     <li><a href="#" onmouseover="prikazi('m1')" onmouseout="sakrij()" id="naslovna" onclick="openPagePHP('novosti.php')">Novosti</a>
+     <li><a href="#" onmouseover="prikazi('m1')" onmouseout="sakrij()" id="naslovna" onclick="openPagePHP('Naslovna.html');">Novosti</a>
 	 <div id="m1" onmouseover="otkrij()" onmouseout="sakrij()">
 	 <a href="#">Nove aktivnosti</a>
 	 <a href="#">Termini za PP</a>
 	 <a href="#">Takmicenja iz PP</a>
 	 </div>
 	 </li>
-     <li><a href="#"onmouseover="prikazi('m2')" onmouseout="sakrij()" id="onama"> O nama</a>
+     <li><a href="#"onmouseover="prikazi('m2')" onmouseout="sakrij()" id="onama" onclick="openPagePHP('onama.html');"> O nama</a>
 	 <div id="m2" onmouseover="otkrij()" onmouseout="sakrij()">
 	 <a href="#">O pokretu</a>
 	 <a href="#">O organizaciji</a>
 	 <a href="#">Struktura CK</a>	
 	 </div>
 	 </li>
-     <li><a href="#" onmouseover="prikazi('m3')" onmouseout="sakrij()" id="aktivnosti">Aktivnosti</a>
+     <li><a href="#" onmouseover="prikazi('m3')" onmouseout="sakrij()" id="aktivnosti" onclick="openPagePHP('volonteri.html');">Aktivnosti</a>
 	  <div id="m3" onmouseover="otkrij()" onmouseout="sakrij()">
 	 <a href="#">Prva pomoć</a>
 	 <a href="#">Dobrovoljno darivanje krvi</a>
@@ -43,18 +38,17 @@
 	 <a href="#">Edukacije</a>
 	 </div>
 	 </li>
-     <li class="dropdown"><a href="#" id="partneri">Partneri</a></li>
-	 <li><a href="#"onmouseover="prikazi('m4')" onmouseout="sakrij()" id="ponuda" onclick="prikaziArtikle()">Ponuda</a>
+     <li class="dropdown"><a href="#" id="partneri"onclick="openPagePHP('partneri.html');">Partneri</a></li>
+	 <li><a href="#"onmouseover="prikazi('m4')" onmouseout="sakrij()" id="ponuda" onclick="prikaziArtikle()" onclick="openPagePHP('ponuda.html');">Ponuda</a>
 	 <div id="m4" onmouseover="otkrij()" onmouseout="sakrij()">
-	 <a href="#" id="dodajArtikal">Dodaj artikal</a>
-	 <a href="#" id="izmjeniArtikal">Izmjeni artikal</a>
-     <a href="#"id="obrisiArtikal">Obriši artikal</a>	 
+	 <a href="#" id="dodajArtikal"onclick="openPagePHP('dodajartikal.html');">Dodaj artikal</a>
+	 <a href="#" id="izmjeniArtikal" onclick="openPagePHP('izmjeniartikal.html');">Izmjeni artikal</a>
+     <a href="#"id="obrisiArtikal"onclick="openPagePHP('obrisiartikal.html');">Obriši artikal</a>	 
 	 </div>
 	 </li>
-     <li class="dropdown"><a href="#" id="kontakt">Kontakt</a></li>
+     <li class="dropdown"><a href="#" id="kontakt" onclick="openPagePHP('Kontakt.html');">Kontakt</a></li>
 </ul>
 </div>
-
 <div id="traka">
 <div id="principi">
 <div id="naslov_p"> Principi Crvenog križa:</div>
@@ -79,20 +73,3 @@ E-mail:  ck_ilidza@hotmail.com<br>
 </pre>
 </div>
 </div>
-
-
-<div id="sadrzaj">
-<div id="tijelo">
-</div>
-</div>
-
-<div id="dno">
-Copyright &copy; 2015. Botulja Sumeja 
-</div>
-</div>
-<script src ="meni.js"></script>
-<script src ="ajaxOpenPage.js"></script>
-<script src ="validacija.js"></script>
-<script src ="ponuda.js"></script>
-</body>
-</html>
