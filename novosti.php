@@ -1,6 +1,6 @@
 
      <?php
-     $veza = new PDO("mysql:dbname=baza_wt_projekat; host=localhost; charset=utf8", "sumeja", "sum11");
+     $veza = new PDO("mysql:dbname=baza_wt_projekat; host=127.6.39.130; charset=utf8", "sumeja", "sum11");
      $veza->exec("set names utf8");
      $rezultat = $veza->query("select id, naslov,autor,UNIX_TIMESTAMP(datum)datum2, tekst, slika from novosti order by datum desc");
      if (!$rezultat) {

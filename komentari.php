@@ -1,6 +1,6 @@
 <?php include 'zaglavlje.html'?>
      <?php
-     $veza = new PDO("mysql:dbname=baza_wt_projekat; host=localhost; charset=utf8", "sumeja", "sum11");
+     $veza = new PDO("mysql:dbname=baza_wt_projekat; host=127.6.39.130; charset=utf8", "sumeja", "sum11");
      $veza->exec("set names utf8");
 	 $nov = intval($_GET['novosti']); // make sure its only an id (SQL Incjection problems)
   $komentari=$veza->query("SELECT tekst, novosti, autor,UNIX_TIMESTAMP(datum) datum2 , email FROM komentari WHERE novosti=$nov");
