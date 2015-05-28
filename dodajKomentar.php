@@ -9,7 +9,7 @@
          return $data;
 }
          //$vijesti = $autor = $tekst = " ";
-         $veza = new PDO("mysql:dbname=baza_wt_projekat; host=127.6.39.130; charset=utf8", "sumeja", "sum11");
+         $veza = new PDO("mysql:dbname=baza_wt_projekat; host=27.5.44.130:3306; charset=utf8", "sumeja", "sum11");
      $veza->exec("set names utf8");
 
 	$validno=true;
