@@ -1,52 +1,29 @@
 
-<?php
-	$novosti="";
-	$txtNovosti = glob("novosti/*.txt");
-	$sve=$datum=$autor=$naslov=$slika=$opis=$detalj=$linke="";
-	$detaljnijeIspis="Detaljnije...";
+     <?php
+     $veza = new PDO("mysql:dbname=baza_wt_projekat; host=localhost; charset=utf8", "sumeja", "sum11");
+     $veza->exec("set names utf8");
+     $rezultat = $veza->query("select id, naslov,autor,UNIX_TIMESTAMP(datum)datum2, tekst, slika from novosti order by datum desc");
+     if (!$rezultat) {
+          $greska = $veza->errorInfo();
+          print "SQL greška: " . $greska[2];
+          exit();
+     }
+	 print '<div class= "sadrzaj" id="tijelo">';
+         foreach ($rezultat as $novosti) {
+			 print ' <div class ="novost">';
+			 $string=$novosti['tekst'];
+			 if (strlen($string) > 300) {
+              $trimstring = substr($string, 0, 300).' <br><a href="detaljnije.php?novost='.$novosti['id'].'" onclick="openPagePHP("detaljnije.php")">Detaljnije...</a>';
+            } else {
+             $trimstring = $string;
+          }
+          print'<p class ="naslovN">'.$novosti['naslov'].'<p class = "autor">'.$novosti['autor']."&nbsp&nbsp&nbsp".date("d.m.Y.(h:i)", $novosti['datum2']).'</p><p class="slika"><img src="'.$novosti['slika'].'"alt=""></p><p class = "tekst">'.$trimstring.'</p>';
+         $komentari=$veza->query("SELECT COUNT(*) FROM komentari WHERE novosti=".$novosti['id']);
+           $kom = $komentari->fetchColumn();
+           if($kom == 0) print '<br><small><a href="komentari.php?novosti='.$novosti['id'].'" style="float:right"  onclick="openPagePHP("komentari.php")">Nema komentara</a></small>';
+         else print'<br><small><a href="komentari.php?novosti='.$novosti['id'].'" style="float:right"  onclick="openPagePHP("komentari.php")">'.$kom.' komentara</a></small>';
+		print '</div>';
+        }
+		print '</div>';
+         ?>
 
-	foreach ($txtNovosti as $novosti) 
-	{
-		$sve = file($novosti);
-		$datum = trim($sve[0]);
-		$autor = trim($sve[1]);
-		$naslov = strtolower(trim($sve[2]));
-		$naslov = ucfirst($naslov);
-		$slika = trim($sve[3]);
-		$opis = "";
-		$detalj = "";
-		$link = "";
-		$i = 3;
-		$j = count($sve);
-		while ($j-1 != $i && trim($sve[$i]) != "--") 
-		{
-			$opis = $opis.$sve[$i];
-			$i++;
-		}
-		if(trim($sve[$i]) == "--")
-		{
-			$i++;
-			while ($i != count($sve)) 
-			{
-				$detalj = $detalj.$sve[$i];
-				$i++;
-			}
-		}
-		
-		$novost ='
-		        <div class ="novost">
-                <p class = "naslovN"> '.$naslov.'</p>                
-				<p class = "autor">'.$autor.'</p>
-				<p class="datum">'.$datum.'</p>
-				<p class="slika"> <img src='.$slika.' alt=""> </p>
-				<p class = "tekst">'.$opis.'</p>
-				<p class = "detaljnije">'.$detalj.'</p></div>';
-		
-		if ($detalj != "")
-		{
-			$link = '<a href="#" class="detaljnije">'.$detaljnijeIspis.'.</a>';
-		}
-		$novost = $novost.'<br>'.$link.'</div>';
-		 	echo $novost;
-	}
-?>

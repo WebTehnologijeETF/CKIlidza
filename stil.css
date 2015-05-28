@@ -155,14 +155,30 @@ font-size:50px;
 	height:500px;
 	margin-right:10px;
 	overflow: scroll;
+	padding-left:10px;
 }
 
 .novost{
 	height: 290px;
 	width: 650px;
-	padding:0;	
+    padding:0;
 	background-color:white;
 	margin:25px;
+}
+.komentar{
+	height: 150px;
+	width: 550px;
+	padding:20px;	
+	background-color:white;
+	margin:25px;
+}
+
+.komentar1{
+	height: 250px;
+	width: 550px;
+	padding:20px;	
+	background-color:white;
+	margin-left:25px;
 }
 
 .naslovN{
@@ -261,7 +277,7 @@ font-family:"Ubuntu";
 #tijelo{
 float:right;
 margin:0;
-padding:0;
+padding-left:10px;
 }
 #siguran{
 display:block;
@@ -283,12 +299,33 @@ border: 1px solid #999;
 box-shadow: 0px 0px 8px;
 background-color:#F9F0F0;
 }
+
+#okvir_kontakt1
+{
+width:200px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #999;
+box-shadow: 0px 0px 8px;
+background-color:#F9F0F0;
+
+}
+
+
 #sviError{ visibility:hidden;}
 .dugme{
 width:80px;
 margin-left:230px;
 font-family:"Ubuntu";
 font-weight:bold;
+
+}
+.komentarisi{
+width:120px;
+font-family:"Ubuntu";
+font-weight:bold;
+float:right;
 
 }
 
