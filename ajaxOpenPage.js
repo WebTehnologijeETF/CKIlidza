@@ -1,6 +1,10 @@
         document.getElementById("naslovna").addEventListener( "click", function(ev){
                 openPage("Naslovna.html");
         }, false);
+		
+		      document.getElementById("admin").addEventListener( "click", function(ev){
+                openPage("admin.html");
+        }, false);
 
         document.getElementById("onama").addEventListener( "click", function(ev){
                openPage("onama.html");

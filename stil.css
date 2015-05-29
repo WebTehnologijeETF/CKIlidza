@@ -13,13 +13,35 @@ border: 1px;
  padding: 0;
  box-shadow: 5px 5px 5px #333333;
 }
+#trakaica{
+margin-left:220px;
+width:260px;
+background-color:white;
+}
 #traka{
 float:left;
 width:260px;
 clear:both;
 background-color:white;
 }
+.uredi{
+width:200px;
+height:50px;
+font-family:"Ubuntu";
+font-weight:bold;
+}
 
+.mini{
+width:100px;
+font-weight:8px;
+height:8px;
+font-family:"Ubuntu";
+font-weight:bold;
+}
+#prijava{
+padding-left:250px;
+padding-top:50px;
+}
 #principi{
 width:220px;
 margin:15px;
@@ -158,6 +180,15 @@ font-size:50px;
 	padding-left:10px;
 }
 
+.sadrzaj1{
+    float:right;
+	width: 700px;
+	height:500px;
+	margin-right:10px;
+	padding-left:10px;
+	background-color:white;
+}
+
 .novost{
 	height: 290px;
 	width: 650px;
@@ -199,6 +230,10 @@ font-size:50px;
 	background-color:#800000;
 	font-weight:bold;
 font-family:"Ubuntu";
+}
+#admin{
+padding-right:20px;
+padding-top:20px;
 }
 
 .autor{
@@ -279,6 +314,7 @@ float:right;
 margin:0;
 padding-left:10px;
 }
+
 #siguran{
 display:block;
 margin-left:290px;
