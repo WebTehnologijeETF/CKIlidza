@@ -1,11 +1,11 @@
-<?php include 'zaglavlje.html'?>
+
      <?php
      $veza = new PDO("mysql:dbname=baza_wt_projekat; host=localhost; charset=utf8", "sumeja", "sum11");
      $veza->exec("set names utf8");
-	 $nov = intval($_GET['novosti']); // make sure its only an id (SQL Incjection problems)
-  $komentari=$veza->query("SELECT tekst, novosti, autor,UNIX_TIMESTAMP(datum) datum2 , email FROM komentari WHERE novosti=$nov");
+	 $nov = intval($_GET['novost']); // make sure its only an id (SQL Incjection problems)
+  $komentari=$veza->query("SELECT tekst, novosti, autor,UNIX_TIMESTAMP(datum) datum2 , email FROM komentari WHERE novosti=$nov order by datum desc");
    
-   print '<div class= "sadrzaj" id="tijelo">';
+   print '<div class= "sadrzaj">';
   // $to='sbotulja1@etf.unsa.ba';
          foreach ($komentari as $kom) {
 			 if($kom['email']!=null){
@@ -30,7 +30,6 @@
 		
 		</form>
 		</div>
-<?php
- print '</div>'; ?>
+
+
  
-<?php include 'podnozje.html'?>

@@ -10,14 +10,18 @@
           print "SQL greška: " . $greska[2];
           exit();
      }
+	 print '<br><small><a href="adminPanel.php?" style="float:right"  onclick="openPagePHP("adminPanel.php")"><< Nazad na admin panel</a></small>';   
+        
+	 print'<table>';
          foreach ($rezultat as $novosti) {
 			 
-          print'<p>'.$novosti['naslov'].'&nbsp&nbspid'.$novosti['id'].'</p>
-		      
-			  <div> <a href="obrisiNovost.php?novosti='.$novosti['id'].'" class="mini" style="float:right">Obriši</a></div>
-	          <div> <a href="#" class="mini"  onclick="openPagePHP("izmjeniNovost.php")" style="float:right">Izmjeni</a></div>';
+          print'<tr><td>'.$novosti['naslov'].'&nbsp&nbsp'.$novosti['id'].'</td>
+			  <td> <a href="obrisiNovost.php?novosti='.$novosti['id'].'" class="mini" style="float:right">Obriši</a></td>
+	         <td><a href="izmjena.php?novosti='.$novosti['id'].'" class="mini" style="float:right">Izmjeni</a></td></tr>';
         
-        }?>
+        }
+		print '</table>'; 
+		?>
 		   <br><br>
 				<div class="komentar1">
 				<form id="formica"  method="post" action="dodajNovost.php" novalidate>
@@ -25,7 +29,7 @@
 				<table id="tabela_kontakt">
 				<tr><td>Naziv: </td> <td><input class = "polje" type="text" name="naziv" ></td></tr>
 				<tr><td >Autor: </td> <td><input class = "polje" type="email" name="autor"></td> </tr>
-				<tr><td >Slika: </td> <td><input class = "polje" type="email" name="slika"></td> </tr>
+				<tr><td >Slika: </td> <td><input class = "polje" type="text" name="slika"></td> </tr>
 				<tr><td >Text:</td><td><textarea id="komentar" name="text" ></textarea></td></tr>	
 				<tr><td><input class="komentarisi" type="submit" value="Dodaj"></td></tr>
 				</table>

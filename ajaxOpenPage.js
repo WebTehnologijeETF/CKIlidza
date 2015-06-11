@@ -2,7 +2,13 @@
                 openPage("Naslovna.html");
         }, false);
 		
-		      document.getElementById("admin").addEventListener( "click", function(ev){
+		document.getElementById("admin").addEventListener( "click", function(ev){
+                openPage("admin.html");
+        }, false);
+			document.getElementById("logout").addEventListener( "click", function(ev){
+                openPage("admin.html");
+        }, false);
+			document.getElementById("signup").addEventListener( "click", function(ev){
                 openPage("admin.html");
         }, false);
 
@@ -44,14 +50,12 @@
 			ajax=new ActiveXObject("Microsoft.XMLHTTP");
 		}
                 ajax.onreadystatechange = function() {// Anonimna funkcija                 
-                        if (ajax.readyState == 4 && ajax.status == 200)
-                        {							
+                        if (ajax.readyState == 4 && ajax.status == 200)						
                                 document.getElementById("sadrzaj").innerHTML = ajax.responseText;                               
-                        }
                         if (ajax.readyState == 4 && ajax.status == 404)
                                 document.getElementById("sadrzaj").innerHTML = "Greska: nepoznat URL";
                 }
-                ajax.open("POST", link, true);
+                ajax.open("GET", link, true);
                 ajax.send();
         }
 		
@@ -66,13 +70,98 @@
 			ajax=new ActiveXObject("Microsoft.XMLHTTP");
 		}
                 ajax.onreadystatechange = function() {// Anonimna funkcija                 
-                        if (ajax.readyState == 4 && ajax.status == 200)
-                        {							
-                                document.getElementById("tijelo").innerHTML = ajax.responseText;                               
-                        }
+                        if (ajax.readyState == 4 && ajax.status == 200)							
+                                document.getElementById("sadrzaj").innerHTML = ajax.responseText;                               
                         if (ajax.readyState == 4 && ajax.status == 404)
-                                document.getElementById("tijelo").innerHTML = "Greska: nepoznat URL";
+                                document.getElementById("sadrzaj").innerHTML = "Greska: nepoznat URL";
                 }
-                ajax.open("POST", link, true);
+                ajax.open("GET", link, true);
+                ajax.send();
+        }
+function openPagePHPK(id){
+            var ajax;
+        if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                        ajax=new XMLHttpRequest();
+                }
+        else
+                {// code for IE6, IE5
+                        ajax=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                
+                ajax.onreadystatechange = function() {// Anonimna funkcija    
+                      var s="tijelo"+id;                                
+                        if (ajax.readyState == 4 && ajax.status == 200)                                                       
+                                document.getElementById(s).innerHTML = ajax.responseText;                               
+                        if (ajax.readyState == 4 && ajax.status == 404)
+                                document.getElementById(s).innerHTML = "Greska: nepoznat URL";
+                }
+                ajax.open("GET", "komentar.php?novost="+id, true);
+                ajax.send();
+        }
+		
+		function openPagePHPKom(id){
+            var ajax;
+        if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                        ajax=new XMLHttpRequest();
+                }
+        else
+                {// code for IE6, IE5
+                        ajax=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                
+                ajax.onreadystatechange = function() {// Anonimna funkcija    
+                      var s="tijelo"+id;                                
+                        if (ajax.readyState == 4 && ajax.status == 200)                                                       
+                                document.getElementById(s).innerHTML = ajax.responseText;   
+                                						
+                        if (ajax.readyState == 4 && ajax.status == 404)
+                                document.getElementById(s).innerHTML = "Greska: nepoznat URL";
+							
+							
+                }
+                ajax.open("GET", "komentari.php?novost="+id, true);
+                ajax.send();
+        }
+		
+		function openPagePHPDet(id){
+            var ajax;
+        if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                        ajax=new XMLHttpRequest();
+                }
+        else
+                {// code for IE6, IE5
+                        ajax=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                
+                ajax.onreadystatechange = function() {// Anonimna funkcija    
+                      var s="tijelo"+id;                                
+                        if (ajax.readyState == 4 && ajax.status == 200)                                           
+                                document.getElementById(s).innerHTML = ajax.responseText;   
+                        if (ajax.readyState == 4 && ajax.status == 404)
+                                document.getElementById(s).innerHTML = "Greska: nepoznat URL";			
+                }
+                ajax.open("GET", "detaljnije.php?novost="+id, true);
+                ajax.send();
+        }
+		function sakrijKom(id){
+            var ajax;
+        if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                        ajax=new XMLHttpRequest();
+                }
+        else
+                {// code for IE6, IE5
+                        ajax=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                
+                ajax.onreadystatechange = function() {// Anonimna funkcija    
+                      var s="tijelo"+id;                                
+                        if (ajax.readyState == 4 && ajax.status == 200)                                                     
+                                document.getElementById(s).innerHTML="";   	
+                }
+                ajax.open("GET", "komentari.php?novost="+id, true);
                 ajax.send();
         }

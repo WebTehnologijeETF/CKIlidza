@@ -9,7 +9,12 @@
 <img src="slike/logo.png" alt="">
 </div>
 <div id="naslov">
-<div> <a href="#" id="admin" onclick="openPagePHP('admin.php');" style="float:right">Log in</a></div>
+<table style="float:right">
+<tr> <td><a href="#" id="admin" onclick="openPagePHP('admin.php')" >Login</a></td>
+<td><a href="#" id="logout" onclick="openPagePHP('odjava.php')">Logout</a></td>
+<td><a href="#" id="signup" onclick="openPagePHP('signup.php')">Sign up</a></td>
+ </tr>
+ </table>
 <h1 >Crveni križ općine Ilidža</h1>
 </div>
 <body>
@@ -22,14 +27,14 @@
 	 <a href="#">Takmicenja iz PP</a>
 	 </div>
 	 </li>
-     <li><a href="#"onmouseover="prikazi('m2')" onmouseout="sakrij()" id="onama" onclick="openPagePHP('onama.html');"> O nama</a>
+     <li><a href="#"onmouseover="prikazi('m2')" onmouseout="sakrij()" id="onama" onclick="openPage('onama.html');"> O nama</a>
 	 <div id="m2" onmouseover="otkrij()" onmouseout="sakrij()">
 	 <a href="#">O pokretu</a>
 	 <a href="#">O organizaciji</a>
 	 <a href="#">Struktura CK</a>	
 	 </div>
 	 </li>
-     <li><a href="#" onmouseover="prikazi('m3')" onmouseout="sakrij()" id="aktivnosti" onclick="openPagePHP('volonteri.html');">Aktivnosti</a>
+     <li><a href="#" onmouseover="prikazi('m3')" onmouseout="sakrij()" id="aktivnosti" onclick="openPage('volonteri.html');">Aktivnosti</a>
 	  <div id="m3" onmouseover="otkrij()" onmouseout="sakrij()">
 	 <a href="#">Prva pomoć</a>
 	 <a href="#">Dobrovoljno darivanje krvi</a>
@@ -39,15 +44,15 @@
 	 <a href="#">Edukacije</a>
 	 </div>
 	 </li>
-     <li class="dropdown"><a href="#" id="partneri"onclick="openPagePHP('partneri.html');">Partneri</a></li>
-	 <li><a href="#"onmouseover="prikazi('m4')" onmouseout="sakrij()" id="ponuda" onclick="prikaziArtikle()" onclick="openPagePHP('ponuda.html');">Ponuda</a>
+     <li class="dropdown"><a href="#" id="partneri"onclick="openPage('partneri.html');">Partneri</a></li>
+	 <li><a href="#"onmouseover="prikazi('m4')" onmouseout="sakrij()" id="ponuda" onclick="prikaziArtikle()" onclick="openPage('ponuda.html');">Ponuda</a>
 	 <div id="m4" onmouseover="otkrij()" onmouseout="sakrij()">
-	 <a href="#" id="dodajArtikal"onclick="openPagePHP('dodajartikal.html');">Dodaj artikal</a>
-	 <a href="#" id="izmjeniArtikal" onclick="openPagePHP('izmjeniartikal.html');">Izmjeni artikal</a>
-     <a href="#"id="obrisiArtikal"onclick="openPagePHP('obrisiartikal.html');">Obriši artikal</a>	 
+	 <a href="#" id="dodajArtikal"onclick="openPage('dodajartikal.html');">Dodaj artikal</a>
+	 <a href="#" id="izmjeniArtikal" onclick="openPage('izmjeniartikal.html');">Izmjeni artikal</a>
+     <a href="#"id="obrisiArtikal"onclick="openPage('obrisiartikal.html');">Obriši artikal</a>	 
 	 </div>
 	 </li>
-     <li class="dropdown"><a href="#" id="kontakt" onclick="openPagePHP('Kontakt.html');">Kontakt</a></li>
+     <li class="dropdown"><a href="#" id="kontakt" onclick="openPage('Kontakt.html');">Kontakt</a></li>
 </ul>
 </div>
 <div id="traka">
@@ -74,3 +79,5 @@ E-mail:  ck_ilidza@hotmail.com<br>
 </pre>
 </div>
 </div>
+
+

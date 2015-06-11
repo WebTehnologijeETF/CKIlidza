@@ -33,8 +33,8 @@ font-weight:bold;
 
 .mini{
 width:100px;
-font-weight:8px;
-height:8px;
+font-size:12px;
+height:6px;
 font-family:"Ubuntu";
 font-weight:bold;
 }
@@ -190,14 +190,12 @@ font-size:50px;
 }
 
 .novost{
-	height: 290px;
-	width: 650px;
+	
     padding:0;
 	background-color:white;
 	margin:25px;
 }
 .komentar{
-	height: 150px;
 	width: 550px;
 	padding:20px;	
 	background-color:white;
@@ -205,7 +203,6 @@ font-size:50px;
 }
 
 .komentar1{
-	height: 250px;
 	width: 550px;
 	padding:20px;	
 	background-color:white;
@@ -231,9 +228,10 @@ font-size:50px;
 	font-weight:bold;
 font-family:"Ubuntu";
 }
-#admin{
+#admin,#logout{
 padding-right:20px;
 padding-top:20px;
+padding-left:5px;
 }
 
 .autor{
@@ -249,8 +247,6 @@ padding-top:20px;
 
 .slika{
 margin-top:-13px;
-width:280px;
-height:200px;
 float:left;
 }
 
@@ -261,6 +257,14 @@ float:left;
 	padding-left:305px;
 	padding-right:5px;
 	padding-top:20px;
+	font-family:"Ubuntu", serif;
+}
+
+.tekst1{
+	color: #3D0000;
+	font-size: 14px;
+	text-align:justify;
+	padding:20px;
 	font-family:"Ubuntu", serif;
 }
 .detaljnije{
@@ -304,7 +308,7 @@ text-decoration:none;
 font-family:"Ubuntu";
 }
 
-#formica{
+#formica,#passform{
 padding-top:2px;
 margin-left:10px;
 font-family:"Ubuntu";
