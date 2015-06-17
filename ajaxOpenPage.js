@@ -23,21 +23,13 @@
 		  document.getElementById("partneri").addEventListener( "click", function(ev){
                openPage("partneri.html");
         }, false);
-		  document.getElementById("ponuda").addEventListener( "click", function(ev){
-               openPage("ponuda.html");
-        }, false);
+		 
 		  document.getElementById("kontakt").addEventListener( "click", function(ev){
                 openPage("Kontakt.html");
         }, false);
-			  document.getElementById("dodajArtikal").addEventListener( "click", function(ev){
-                openPage("dodajartikal.html");
-        }, false);
-			  document.getElementById("obrisiArtikal").addEventListener( "click", function(ev){
-                openPage("obrisiartikal.html");
-        }, false);
-		 document.getElementById("izmjeniArtikal").addEventListener( "click", function(ev){
-                openPage("izmjeniartikal.html");
-        }, false);
+			 
+			 
+		
 		
     function openPage(link){
             var ajax;
@@ -99,7 +91,7 @@ function openPagePHPK(id){
                 ajax.open("GET", "komentar.php?novost="+id, true);
                 ajax.send();
         }
-		
+		var s="";
 		function openPagePHPKom(id){
             var ajax;
         if (window.XMLHttpRequest)
@@ -112,7 +104,7 @@ function openPagePHPK(id){
                 }
                 
                 ajax.onreadystatechange = function() {// Anonimna funkcija    
-                      var s="tijelo"+id;                                
+                      s="kom"+id;                                
                         if (ajax.readyState == 4 && ajax.status == 200)                                                       
                                 document.getElementById(s).innerHTML = ajax.responseText;   
                                 						
@@ -137,7 +129,7 @@ function openPagePHPK(id){
                 }
                 
                 ajax.onreadystatechange = function() {// Anonimna funkcija    
-                      var s="tijelo"+id;                                
+                       s="tijelo"+id;                                
                         if (ajax.readyState == 4 && ajax.status == 200)                                           
                                 document.getElementById(s).innerHTML = ajax.responseText;   
                         if (ajax.readyState == 4 && ajax.status == 404)
@@ -146,6 +138,7 @@ function openPagePHPK(id){
                 ajax.open("GET", "detaljnije.php?novost="+id, true);
                 ajax.send();
         }
+		
 		function sakrijKom(id){
             var ajax;
         if (window.XMLHttpRequest)
@@ -158,9 +151,9 @@ function openPagePHPK(id){
                 }
                 
                 ajax.onreadystatechange = function() {// Anonimna funkcija    
-                      var s="tijelo"+id;                                
+                      s="kom"+id;                                
                         if (ajax.readyState == 4 && ajax.status == 200)                                                     
-                                document.getElementById(s).innerHTML="";   	
+                                document.getElementById(s).innerHTML="";  	
                 }
                 ajax.open("GET", "komentari.php?novost="+id, true);
                 ajax.send();

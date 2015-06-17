@@ -1,7 +1,7 @@
 <?php
  session_start();
 // definise varijable i stavlja na null
-$ime = $prezime = $telefon = $email = $komentar = $radio=$mjesto= $opcina= "";
+$ime = $prezime = $telefon = $email = $komentar = $radio= "";
 $valid=true;
 
 function test_input($data) {
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 	$valid=false;
   } else {
     $ime = test_input($_POST["ime"]);
-    // da li iem sadrzi samo slova i prazna mjesta
+    // da li ime sadrzi samo slova i prazna mjesta
     if (!preg_match("/^[a-zA-Z ]*$/",$ime)) 
       $imeError = "Ime smije sadržavati samo slova i prazna mjesta!"; 
   else $imeError = " ";
@@ -57,32 +57,18 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
   if (empty($_POST["komentar"])) {
     $komentarError = "Unesite komentar!";
 	$valid=false;
-  } else {
+  }
+  else {
     $komentar = test_input($_POST["komentar"]);
-	if($radio=="ne"){ $komentar='disabled'; $komentarError =" ";}
-    else if($radio=="da") $komentar='Polje komentar je omoguceno, molimo unesite komentar!';
-    	
+	$komentarError = " ";
   }
 
-  if (empty($_POST["radio"])) {
-    $radioError = "Odaberite da ili ne!";
-	$valid=false;
-  } else {
-    $radio = test_input($_POST["radio"]);
-	$radioError = " ";
-  }
-  $mjesto = test_input($_POST["mjesto"]);
-$opcina = test_input($_POST["opcina"]);
 }
-
 
 $_SESSION['sime']=$ime;
 $_SESSION['sprezime']=$prezime;
 $_SESSION['semail']=$email;
 $_SESSION['skomentar']=$komentar;
 $_SESSION['stelefon']=$telefon;
-$_SESSION['smjesto']=$mjesto;
-$_SESSION['sopcina']=$opcina;
  
-
 ?>

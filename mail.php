@@ -1,6 +1,6 @@
 <?php include 'zaglavlje.html'?>
 <?php
-$sendime = $sendprezime= $sendemail =$sendmessage =$sendmjesto=$sendopcina=$from=$to=$subject=$body=$headers="";
+$sendime = $sendprezime= $sendemail =$sendmessage =$from=$to=$subject=$body=$headers="";
 ini_set("SMTP","webmail.etf.unsa.ba");
 ini_set("smtp_port","25");
 ini_set("sendmail_from", "sbotulja1@etf.unsa.ba");
@@ -11,12 +11,10 @@ $sendprezime= $_SESSION['sprezime'];
 $from= $_SESSION['semail'];
 $sendmessage= $_SESSION['skomentar'];
 $sendtelefon= $_SESSION['stelefon'];
- $sendmjesto= $_SESSION['smjesto'];
-$sendopcina= $_SESSION['sopcina'];
 
 $to = 'sbotulja1@etf.unsa.ba'; 
 $subject = 'Poruka sa kontakt forme';
-$body = "Postetioc: $sendime $sendprezime je poslao svoj email kontakt: $from i telefon $sendtelefon. Živi u općini $sendopcina u mjestu $sendmjesto.
+$body = "Postetioc: $sendime $sendprezime je poslao svoj email kontakt: $from i telefon $sendtelefon. 
          Napisao je sljedeći komentar: $sendmessage";
 $msg=wordwrap($body,70);
 

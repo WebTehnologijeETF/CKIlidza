@@ -8,21 +8,16 @@ if(isset($_GET['username']) && isset($_GET['pass'])){
 	}
 	$veza = new PDO("mysql:dbname=baza_wt_projekat; host=localhost; charset=utf8", "sumeja", "sum11");
      $veza->exec("set names utf8");
-	  $rezultat = $veza->query("select * from korisnici WHERE username='".$u."' AND pom_pass='".$pom."'");
+	  $rezultat = $veza->query("select * from korisnici WHERE username='".$u."' AND pompass='".$pom."'");
 	  $rez=$rezultat->fetch(PDO::FETCH_BOTH);
-	  	
-	 
+
       if (!$rezultat) {
           $greska = $veza->errorInfo();
           print "SQL greška: " . $greska[2];
           exit();
      }
-	
-	
         $id=$rez['id'];
-	
-		$sql = "UPDATE korisnici SET password='".$pom."' WHERE id='".$id."'";
-		$sql = "UPDATE korisnici SET pom_pass='' WHERE id='".$id."'";
+		$sql = "UPDATE korisnici SET password='".$pom."',SET pompass='' WHERE id='".$id."'";
 		print "Uspješno ste generisali novi password, a on je '".$pom."'";
 		
        	 

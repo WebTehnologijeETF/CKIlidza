@@ -1,18 +1,13 @@
-
-     <?php
+ <?php
      $veza = new PDO("mysql:dbname=baza_wt_projekat; host=localhost; charset=utf8", "sumeja", "sum11");
      $veza->exec("set names utf8");
 	 $nov = intval($_GET['novost']); // make sure its only an id (SQL Incjection problems)
   $komentari=$veza->query("SELECT tekst, novosti, autor,UNIX_TIMESTAMP(datum) datum2 , email FROM komentari WHERE novosti=$nov order by datum desc");
    
-   print '<div class= "sadrzaj">';
+  // print '<div class= "sadrzaj">';
   // $to='sbotulja1@etf.unsa.ba';
          foreach ($komentari as $kom) {
-			 if($kom['email']!=null){
-		   print"<div class=komentar>"."<p><strong>"."<a href='mailto:".$kom['email']."?body=".$kom['tekst']."'>".$kom['autor']."</a></strong>&nbsp&nbsp&nbsp<small>".$kom['email']."</small></p><small>".date('d.m.Y. (h:i)', $kom['datum2'])."</small><p>".$kom['tekst']."</p></div>";    
-			 }
-			 else 
-				  print'<div class="komentar"><p><strong>'.$kom['autor'].'</strong>&nbsp&nbsp&nbsp<small>'.$kom['email'].'</small></p><small>'.date("d.m.Y. (h:i)", $kom['datum2']).'</small><p>'.$kom['tekst'].'</p></div>';    
+		 print'<div class="komentar"><p><strong>'.$kom['autor'].'</strong>&nbsp&nbsp&nbsp<small>'.$kom['email'].'</small></p><small>'.date("d.m.Y. (h:i)", $kom['datum2']).'</small><p>'.$kom['tekst'].'</p></div>';    
 		}
 		 
 	   ?>

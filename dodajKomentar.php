@@ -1,6 +1,6 @@
 <?php include 'zaglavlje.html'?>
   <?php
-  print '<div class= "sadrzaj" id="tijelo">';
+  print '<div class= "sadrzaj">';
 
 	 function test_input($data) {
          $data = trim($data); //uklanja nepotrebne karaktere (prazna mjesta, tabovi, nove linije)
@@ -46,7 +46,7 @@
 	if($query->execute()) 
         {
            echo $poruka = "Ostavili ste komentar na željenu novost!";
-		    print '<br><small><a href="komentari.php?novosti='.$id.'" style="float:right"  onclick="openPagePHP("komentari.php")"><< Nazad</a></small>';    
+		    print '<br><small><a href="#" style="float:right"  onclick="openPagePHP("komentari.php")"><< Nazad</a></small>';    
         }
 		
 }
@@ -54,7 +54,7 @@
 	else if($validno==false) {
 		 $id = test_input($_POST["id"]);
 		echo $poruka = "Uneseni podaci nisu validni. Molimo Vas unesite nick i komentar, a za pravilan unos emaila pratite example!!";
-		 print '<br><small><a href="komentari.php?novosti='.$id.'" style="float:right"  onclick="openPagePHP("komentari.php")"><< Nazad</a></small>';    
+		 print '<br><small><a href="#"  style="float:right"  onclick="openPagePHP("komentari.php")"><< Nazad</a></small>';    
 	}
        print '</div>';  ?>
 		 <?php include 'podnozje.html'?>

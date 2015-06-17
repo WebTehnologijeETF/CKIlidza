@@ -52,7 +52,7 @@
 	}
 	else if($validno==false) {
 		echo $poruka = "Uneseni podaci nisu validni. Molimo Vas unesite sva polja. Hvala.";
-		 print '<br><small><a href="#" style="float:right"  onclick=openPagePHP("signup.php")><< Nazad</a></small>';    
+		 print '<br><small><a href="#" style="float:right"  onclick=openPagePHP("prijava.php")><< Nazad</a></small>';    
        
 		 }
 

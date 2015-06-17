@@ -10,7 +10,7 @@
 	if($veza->exec($sql)) 
         {
            echo $poruka = "Obrisali ste novost.";
-		 print '<br><small><a href="novosti2.php?" style="float:right"  onclick="openPagePHP("novosti2.php")"><< Nazad</a></small>';    
+		 print '<br><small><a href="novosti2.php" style="float:right"  onclick="openPagePHP("novosti2.php")"><< Nazad</a></small>';    
          }
 
  print '</div>'; ?>

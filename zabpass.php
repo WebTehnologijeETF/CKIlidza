@@ -3,7 +3,12 @@
 ini_set("SMTP","webmail.etf.unsa.ba");
 ini_set("smtp_port","25");
 ini_set("sendmail_from", "sbotulja1@etf.unsa.ba");
-
+if(empty($_POST["email"]))
+{
+	  echo("<br><br><br> &nbsp; &nbsp; &nbsp; Morate unijeti Vašu email adresu!");
+	   	 print '<br><small><a href="#" style="float:right"  onclick=openPagePHP("pass.php")><< Nazad</a></small>';
+}
+else
 if(isset($_POST['email'])){
 	$e =  $_POST['email'];
 	
@@ -34,7 +39,7 @@ if(isset($_POST['email'])){
 		$poruka = '<h2>Zdravo '.$usern.'</h2><p>Ovo je automatski mail sa stranice Crvenog Križa Ilidža. Ukoliko niste inicirali proces promjene passworda, molimo Vas zanematrite ovaj mail.</p><p>Ukoliko ste ipak inicirali ovaj proces, mi ćemo Vam generisati privremeni password sa kojim se možete prijaviti na stranicu. Kada budete prijavljeni na stranici, možete promijeniti password na onaj koji želite koristiti.</p><p> Kada potvrdite link ispod, Vaš password za prijavu će biti:<br /><b>'.$pomPass.'</b></p><p><a href="http://localhost/projekat/potvrdiPass.php?username='.$usern.'&pass='.$hashPass.'">Kliknite ovdje da biste potvrdili Vaš privremeno generisani password.</a></p><p>Ukoliko ne potvrdite ovaj link, nikakve izmjene neće biti izvršene nad Vašim korisničkim računom.</p>';
 		if(mail($to,$subject,$poruka,$headers)) {
        echo("<br><br><br> &nbsp; &nbsp; &nbsp; ".$usern.", hvala Vam što ste nas kontaktirali.");
-	   	 print '<br><small><a href="#" style="float:right"  onclick=openPagePHP("signup.php")><< Nazad</a></small>';
+	   	 print '<br><small><a href="#" style="float:right"  onclick=openPagePHP("admin.php")><< Nazad</a></small>';
 	   
   }
   else {

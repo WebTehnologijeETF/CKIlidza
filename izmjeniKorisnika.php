@@ -1,6 +1,6 @@
  <?php include 'zaglavlje.html'?>
   <?php
-  print '<div class= "sadrzaj" id="tijelo">';
+  print '<div class= "sadrzaj">';
 
 	 // $kor = intval($_GET['korisnik']);
      function test_input($data) {
@@ -42,14 +42,14 @@
 	if($query->execute()) 
         {
            echo $poruka = "Izmjenili ste korisnika!";
-		 print '<br><small><a href="korisnici.php?" style="float:right"  onclick="openPagePHP("korisnici.php")"><< Nazad</a></small>';    
+		 print '<br><small><a href="korisnici.php" style="float:right"  onclick=openPagePHP("korisnici.php")><< Nazad</a></small>';    
        
 		    }		
 }
 	}
 	else if($validno==false) {
 		echo $poruka = "Uneseni podaci nisu validni. Molimo Vas unesite sva polja. Hvala.";
-		 print '<br><small><a href="korisnici.php?" style="float:right"  onclick="openPagePHP("korisnici.php")"><< Nazad</a></small>';    
+		 print '<br><small><a href="korisnici.php" style="float:right"  onclick=openPagePHP("korisnici.php")><< Nazad</a></small>';    
        
 		 }
 print'</div>';

@@ -44,7 +44,7 @@
 	if($query->execute()) 
         {
            echo $poruka = "Unijeli ste korisnika";
-		 print '<br><small><a href="korisnici.php?" style="float:right"  onclick="openPagePHP("korisnici.php")"><< Nazad</a></small>';    
+		 print '<br><small><a href="korisnici.php" style="float:right"  onclick=openPagePHP("korisnici.php")><< Nazad</a></small>';    
        
 		    }
 		
@@ -52,7 +52,7 @@
 	}
 	else if($validno==false) {
 		echo $poruka = "Uneseni podaci nisu validni. Molimo Vas unesite sva polja. Hvala.";
-		 print '<br><small><a href="korisnici.php?" style="float:right"  onclick="openPagePHP("korisnici.php")"><< Nazad</a></small>';    
+		 print '<br><small><a href="korisnici.php" style="float:right"  onclick=openPagePHP("korisnici.php")><< Nazad</a></small>';    
        
 		 }
 

@@ -1,6 +1,7 @@
  <?php include 'zaglavlje.html'?>
   <?php
-  print '<div class= "sadrzaj" id="tijelo">';
+    print '<div class= "podloga">';
+  print '<div class= "sadrzaj">';
 
  $kor = intval($_GET['korisnik']);
          //$vijesti = $autor = $tekst = " ";
@@ -25,6 +26,7 @@
 		
 		</form>
 		<?php
+		print'</div>';
 		print'</div>';
          ?>
 <?php include 'podnozje.html'?>

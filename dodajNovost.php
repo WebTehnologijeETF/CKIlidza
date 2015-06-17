@@ -1,6 +1,9 @@
 <?php include 'zaglavlje.html'?>
   <?php
   print '<div class= "sadrzaj" id="tijelo">';
+   if (isset($_SESSION['username'])){
+    $username = $_SESSION['username'];
+        echo '<p>Prijavljeni ste kao '.$username.'</p>';
 
 	 function test_input($data) {
          $data = trim($data); //uklanja nepotrebne karaktere (prazna mjesta, tabovi, nove linije)
