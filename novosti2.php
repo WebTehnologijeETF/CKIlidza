@@ -117,7 +117,7 @@ E-mail:  ck_ilidza@hotmail.com<br>
 		</form>
 <?php
  print '</div> 
- </div>
+ </div> 
   </div>';?>
 
 <?php include 'podnozje.html'?>
