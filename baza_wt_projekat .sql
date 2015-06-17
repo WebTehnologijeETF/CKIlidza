@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2015 at 07:40 AM
+-- Generation Time: Jun 17, 2015 at 10:35 PM
 -- Server version: 5.6.17-log
 -- PHP Version: 5.5.12
 
@@ -30,12 +30,13 @@ CREATE TABLE IF NOT EXISTS `komentari` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tekst` varchar(500) COLLATE utf8_slovenian_ci NOT NULL,
   `autor` varchar(100) COLLATE utf8_slovenian_ci NOT NULL,
-  `email` varchar(20) COLLATE utf8_slovenian_ci NOT NULL,
+  `email` varchar(60) COLLATE utf8_slovenian_ci NOT NULL,
   `datum` timestamp NOT NULL,
   `novosti` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `novosti` (`novosti`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=24 ;
+  KEY `novosti` (`novosti`),
+  KEY `autor` (`autor`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `komentari`
@@ -44,11 +45,8 @@ CREATE TABLE IF NOT EXISTS `komentari` (
 INSERT INTO `komentari` (`id`, `tekst`, `autor`, `email`, `datum`, `novosti`) VALUES
 (9, 'svaka vam cast! samo tako dalje nastavite!', 'nicky', 'niicky@gmail.com', '2015-05-28 13:40:57', 2),
 (13, 'pobjedit cemo vas!', 'anonimac', '', '2015-05-28 13:47:48', 4),
-(19, 'najbolji smo!!!!', 'no1', '', '2015-05-28 14:07:03', 2),
 (20, 'necete!', 'xx', 'kadric.admir.23@gmai', '2015-05-28 15:45:29', 4),
-(21, 'hocemo!', 'najbolji', '', '2015-05-28 15:47:52', 4),
-(22, 'hahahahaha', 'xx', '', '2015-05-28 15:48:35', 4),
-(23, 'dosta vas!', 'sumeja', 'sbotulja1@etf.unsa.b', '2015-05-29 02:04:06', 2);
+(21, 'hocemo!', 'najbolji', '', '2015-05-28 15:47:52', 4);
 
 -- --------------------------------------------------------
 
@@ -58,17 +56,20 @@ INSERT INTO `komentari` (`id`, `tekst`, `autor`, `email`, `datum`, `novosti`) VA
 
 CREATE TABLE IF NOT EXISTS `korisnici` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) COLLATE utf8_slovenian_ci NOT NULL,
-  `password` varchar(20) COLLATE utf8_slovenian_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8_slovenian_ci NOT NULL,
+  `password` varchar(50) COLLATE utf8_slovenian_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_slovenian_ci NOT NULL,
+  `pomass` varchar(50) COLLATE utf8_slovenian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `korisnici`
 --
 
-INSERT INTO `korisnici` (`id`, `username`, `password`) VALUES
-(1, 'sumka', 'sum123');
+INSERT INTO `korisnici` (`id`, `username`, `password`, `email`, `pomass`) VALUES
+(3, 'sumka', 'sum123', 'sbotulja1@etf.unsa.ba', ''),
+(4, 'ss', 'kjkjk', 'niicky@gmail.com', '');
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `novosti` (
   `tekst` varchar(3000) COLLATE utf8_slovenian_ci NOT NULL,
   `slika` varchar(100) COLLATE utf8_slovenian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `novosti`
