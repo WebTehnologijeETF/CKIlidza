@@ -74,8 +74,7 @@ E-mail:  ck_ilidza@hotmail.com<br>
 </div>
 
 <div id="sadrzaj">
-  <?php
-   print '<div class ="podloga">';
+ <?php
   	 print '<div class ="sadrzaj">';
  session_start();
           $veza = new PDO("mysql:dbname=baza_wt_projekat; host=localhost; charset=utf8", "sumeja", "sum11");
@@ -107,22 +106,21 @@ else{
         }
 	}
 
-	}
+	/* }
     if (isset($_SESSION['username'])){
     $username = $_SESSION['username'];
         echo '<p>Prijavljeni ste kao '.$username.'</p>';
         }
-   else {
+  /* else {
 		$pocetak_sesije=time();
 		 $_SESSION['expire'] = $pocetak_sesije + (1 * 60);
 	if ($pocetak_sesije > $_SESSION['expire']){
 		session_destroy();
 		print 'Vaša sesija je istekla. Molimo Vas da se prijavite ponovo!';
 		}
-		else{
+		else{*/
      print '<p>Uspješno ste prijavljeni kao '.$_SESSION['username'].' :D</p>';
-		}
-   }
+		
 		if(isset($_SESSION['username']) && $_SESSION['username']=="sumka" && $_SESSION['password']=="sum123")
 		{
 		?>
@@ -141,7 +139,7 @@ else{
 		}
 		
 		}
-    print '</div>';
-  print '</div>';
+  }
+   print '</div>';
    print '</div>';?>
 		 <?php include 'podnozje.html'?>
