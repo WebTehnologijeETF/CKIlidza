@@ -1,9 +1,7 @@
 <?php include 'zaglavlje.html'?>
   <?php
   print '<div class= "sadrzaj" id="tijelo">';
-   if (isset($_SESSION['username'])){
-    $username = $_SESSION['username'];
-        echo '<p>Prijavljeni ste kao '.$username.'</p>';
+
 
 	 function test_input($data) {
          $data = trim($data); //uklanja nepotrebne karaktere (prazna mjesta, tabovi, nove linije)
@@ -64,7 +62,7 @@
 		 print '<br><small><a href="novosti2.php?" style="float:right"  onclick="openPagePHP("novosti2.php")"><< Nazad</a></small>';    
        
 		 }
-
+   
  print '</div>'; ?>
  
 <?php include 'podnozje.html'?>
